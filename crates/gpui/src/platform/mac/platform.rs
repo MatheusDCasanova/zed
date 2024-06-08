@@ -601,6 +601,8 @@ impl Platform for MacPlatform {
                     panel.setAllowsMultipleSelection_(options.multiple.to_objc());
                     panel.setCanCreateDirectories(true.to_objc());
                     panel.setResolvesAliases_(false.to_objc());
+                    // Set the canCreateDirectories property using the Objective-C runtime
+                    let _: () = msg_send![panel, setCanCreateDirectories: options.allow_create_directories.to_objc()];
                     let done_tx = Cell::new(Some(done_tx));
                     let block = ConcreteBlock::new(move |response: NSModalResponse| {
                         let result = if response == NSModalResponse::NSModalResponseOk {

@@ -731,6 +731,8 @@ pub struct PathPromptOptions {
     pub directories: bool,
     /// Should the prompt allow multiple files to be selected?
     pub multiple: bool,
+    /// Should the prompt allow new folder to be created?
+    pub allow_create_directories: bool,
 }
 
 /// What kind of prompt styling to show

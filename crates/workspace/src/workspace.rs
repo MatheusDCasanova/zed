@@ -291,6 +291,7 @@ pub fn init(app_state: Arc<AppState>, cx: &mut AppContext) {
                 files: true,
                 directories: true,
                 multiple: true,
+                allow_create_directories: true,
             });
 
             if let Some(app_state) = app_state.upgrade() {
@@ -1561,6 +1562,7 @@ impl Workspace {
             files: true,
             directories: true,
             multiple: true,
+            allow_create_directories: true,
         });
 
         cx.spawn(|this, mut cx| async move {
@@ -1725,6 +1727,7 @@ impl Workspace {
             files: false,
             directories: true,
             multiple: true,
+            allow_create_directories: true,
         });
         cx.spawn(|this, mut cx| async move {
             if let Some(paths) = paths.await.log_err().flatten() {
