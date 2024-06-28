@@ -56,7 +56,6 @@ pub fn init(cx: &mut AppContext) {
                     files: false,
                     directories: true,
                     multiple: false,
-                    allow_create_directories: true,
                 });
 
                 cx.deref_mut()
